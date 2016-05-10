@@ -1,3 +1,4 @@
 <resources>
+    <string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey">C6JeaCbKmvlu52eT7UfRD3Zx9MX2VJdir7TPe</string>
     <string name="app_name">VSTSCDSample</string>
 </resources>

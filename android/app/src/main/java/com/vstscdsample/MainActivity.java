@@ -1,6 +1,7 @@
 package com.vstscdsample;
 
 import com.facebook.react.ReactActivity;
+import com.microsoft.codepush.react.CodePush;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 
@@ -26,6 +27,11 @@ public class MainActivity extends ReactActivity {
     protected boolean getUseDeveloperSupport() {
         return BuildConfig.DEBUG;
     }
+    
+    @Override
+    protected String getJSBundleFile() {
+        return CodePush.getBundleUrl();
+    }
 
     /**
      * A list of packages used by the app. If the app uses additional views
@@ -34,7 +40,8 @@ public class MainActivity extends ReactActivity {
     @Override
     protected List<ReactPackage> getPackages() {
         return Arrays.<ReactPackage>asList(
-            new MainReactPackage()
+            new MainReactPackage(),
+            new CodePush(this.getResources().getString(R.strings.reactNativeCodePush_androidDeploymentKey), this, BuildConfig.DEBUG)
         );
     }
 }

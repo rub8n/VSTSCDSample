@@ -4,6 +4,7 @@
  */
 
 import React, { Component } from 'react';
+import codePush from "react-native-code-push";
 import {
   AppRegistry,
   StyleSheet,
@@ -12,14 +13,14 @@ import {
 } from 'react-native';
 
 class VSTSCDSample extends Component {
+  componentDidMount(){
+    codePush.sync({installMode: codePush.InstallMode.IMMEDIATE, updateDialog: true });
+  }  
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
+          I'm ready for CodePush!
         </Text>
         <Text style={styles.instructions}>
           Shake or press menu button for dev menu
